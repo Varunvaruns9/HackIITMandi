@@ -1,0 +1,85 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.logo-wrapper {
+    width: 100px;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/bg.jpeg") no-repeat;
+    background-size: cover;
+}
+
+.content {
+    background-color: #fffffff1;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+.notify-wrapper, .login-wrapper {
+    display: block;
+    width: 50%;
+    height: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.notify-wrapper {
+    float: left;
+}
+
+.login-wrapper {
+    border-left: solid 1px #00000012;
+    float: right;
+}
+
+.notifications, .login-form {
+    display: block;
+    max-height: 400px; 
+    padding: 20px;
+    padding-right: -20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border: solid 1px #00000012;
+    border-radius: 2px 2px 2px 2px; 
+}
+
+.login-form {
+    overflow: hidden;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card .card-action {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.notify h4 {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .notify-wrapper, .login-wrapper {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+}
