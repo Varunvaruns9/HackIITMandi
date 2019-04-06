@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/main.css">
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">
+                    <div class="logo-wrapper">
+                        Banana
+                    </div>
+                </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Components</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="#">Home</a></li>
+        <li><a href="badges.html">Components</a></li>
+    </ul>
+
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="notify-wrapper">
+            <div class="notify">
+                <h4>Notifications</h4>
+
+                <div class="notifications">
+
+                    {% for row in lol %}
+                    <div class="card white hoverable">
+                        <div class="card-content black-text">
+                            <span class="card-title">{{ row.organ }} for Donation</span>
+                            <p>Donor: {{ row.name }}</p>
+                            <p>Organ: {{ row.organ }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="mailto:{{ row.email }}">{{ row.email }}</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-wrapper">
+            <div id="signupform">
+                <h4>Sign Up</h4>
+                <div class="login-form">
+                    <form method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="col s12">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+                        <br /><br />Already registered? <a id="gologin" href="{% url 'index' %}">Login Here</a>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="../static/js/main.js"></script>
+</body>
+
+</html>
