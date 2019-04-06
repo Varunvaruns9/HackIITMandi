@@ -7,7 +7,7 @@ def index(request):
 	lol = []
 	for row in User.objects.all():
 		print(row.organs)
-		if 5 in row.organs and row.donors == True:
+		if row.donor == True:
 			lol.append(row)
 	return render(request, 'index.html', {'lol': lol})
 
