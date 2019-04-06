@@ -45,42 +45,18 @@
 
                 <div class="notifications">
 
+                    {% for row in lol %}
                     <div class="card white hoverable">
                         <div class="card-content black-text">
-                            <span class="card-title">Heart for Donation</span>
-                            <p>Donor: Apple Punjabi</p>
-                            <p>Organ: Heart</p>
-                            <p>Location: Punjab</p>
+                            <span class="card-title">{{ row.organ }} for Donation</span>
+                            <p>Donor: {{ row.name }}</p>
+                            <p>Organ: {{ row.organ }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="tel:9876543210">9876543210</a>
-                            <a href="tel:1234567890">1234567890</a>
+                            <a href="mailto:{{ row.email }}">{{ row.email }}</a>
                         </div>
                     </div>
-                    <div class="card white hoverable">
-                        <div class="card-content black-text">
-                            <span class="card-title">Kidney for Donation</span>
-                            <p>Donor: Apple Punjabi</p>
-                            <p>Organ: Heart</p>
-                            <p>Location: Punjab</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="tel:9876543210">9876543210</a>
-                            <a href="tel:1234567890">1234567890</a>
-                        </div>
-                    </div>
-                    <div class="card white hoverable">
-                        <div class="card-content black-text">
-                            <span class="card-title">Liver for Donation</span>
-                            <p>Donor: Apple Punjabi</p>
-                            <p>Organ: Heart</p>
-                            <p>Location: Punjab</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="tel:9876543210">9876543210</a>
-                            <a href="tel:1234567890">1234567890</a>
-                        </div>
-                    </div>
+                    {% endfor %}
 
                 </div>
             </div>

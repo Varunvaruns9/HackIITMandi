@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .algo import *
 from .models import User
+from .choices import Organs
 
 
 def index(request):
@@ -8,7 +9,8 @@ def index(request):
 	for row in User.objects.all():
 		print(row.organs)
 		if row.donor == True:
-			lol.append(row)
+			for a in row.organs:
+				lol.append({'name': row.first_name + ' ' + row.last_name, 'organ': Organs[int(a)][1], 'email': row.email, })
 	return render(request, 'index.html', {'lol': lol})
 
 
