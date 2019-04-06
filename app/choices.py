@@ -7,7 +7,6 @@ Organs = (
 	(3, _("Eyes")),
 	(4, _("Pancreas")),
 	(5, _("Heart")),
-	(6, _("Brain")),
 )
 
 Groups = (
