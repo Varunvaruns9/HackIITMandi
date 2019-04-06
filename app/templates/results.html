@@ -36,8 +36,31 @@
     </ul>
 
     <div class="overlay"></div>
-    <div class="content">
-        
+    <div class="contentrs">
+        <div class="col">
+            <h4>Results</h4>
+            <div class="table-wrapper">
+                <table class="highlight centered">
+                    <thead>
+                        <tr>
+                            <th>Donor</th>
+                            <th>Receiver</th>
+                            <th>Organ</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for a in lol %}
+                        <tr>
+                            <td>{{ a.don }}</td>
+                            <td>{{ a.rec }}</td>
+                            <td>{{ a.organ }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->

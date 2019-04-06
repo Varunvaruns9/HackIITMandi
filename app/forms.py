@@ -8,12 +8,12 @@ class SignUpForm(UserCreationForm):
 	first_name = forms.CharField(max_length=30)
 	last_name = forms.CharField(max_length=30)
 	email = forms.EmailField(max_length=254)
-	donor = forms.BooleanField(initial=False)
+	donor = forms.BooleanField(initial=False, required=False)
 	organs = MultiSelectField(choices=Organs)
-	bloodgroup = forms.ChoiceField(choices=Groups, label="BloodGroup")
-	rh = forms.ChoiceField(choices=RH, label="RH")
-	ailment = forms.BooleanField(initial=False)
-	report = forms.FileField()
+	bloodgroup = forms.ChoiceField(choices=Groups, label="BloodGroup", required=False)
+	rh = forms.ChoiceField(choices=RH, label="RH", required=False)
+	ailment = forms.BooleanField(initial=False, required=False)
+	report = forms.FileField(required=False)
 	age = forms.IntegerField()
 
 	class Meta:

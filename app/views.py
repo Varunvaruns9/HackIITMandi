@@ -57,5 +57,13 @@ def signup(request):
 
 def results(request):
 	lista, listb = stable_match()
-	context = {'lista': lista}
+	lol = []
+	for b in lista:
+		for c in b[3]:
+			d = c.split(' ')
+			print(Organs)
+			e = Organs[int(d[1][1])-1][1]
+			lol.append({'rec': b[1], 'don': d[0], 'organ': e})
+	context = {'lol': lol}
+	print(lol)
 	return render(request, 'results.html', context)

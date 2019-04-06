@@ -3,10 +3,12 @@ from .models import User
 
 def stable_match():
 
+	aa = 0
+
 	class Organ:
 
 		def __init__(self, obj):
-			self.pk = str(obj.pk) + str(obj.lol)
+			self.pk = obj.idd
 			self.donor = obj.first_name
 			self.type = obj.lol
 			self.bloodgroup = obj.bloodgroup
@@ -19,14 +21,14 @@ def stable_match():
 		def __init__(self, obj):
 			self.id = obj.id
 			self.name = obj.first_name
-			self.ailments = obj.ailments
+			self.ailments = obj.ailment
 			self.age = obj.age
 			self.bloodgroup = obj.bloodgroup
 			self.rh = obj.rh
 			self.requirements = []
 			self.requested = obj.organs
 			for requirement in obj.organs:
-				if requirement:
+				if requirement in donor_map:
 					self.requirements.append(donor_map[requirement])
 			self.allocated = []
 
@@ -50,7 +52,8 @@ def stable_match():
 			flag = 0
 			bloodgroup = self.bloodgroup
 			rh = self.rh
-			for req in self.requirements:
+			for requ in self.requirements:
+				req = int(requ)
 				if donors[req].allocated != 0:
 					continue
 				for i in self.allocated:
@@ -110,6 +113,7 @@ def stable_match():
 		if row.donor == True:
 			for entry in row.organs:
 				a = row
+				a.idd = num_organs
 				a.lol = entry
 				allocated_organ = Organ(a)
 				donors.append(allocated_organ)
@@ -146,7 +150,7 @@ def stable_match():
 	patients = list(sorted(patients, key=lambda x: (x.id, x.name.lower())))
 
 	for current_patient in patients:
-		final_list.append([current_patient.id, current_patient.name, current_patient.requested, current_patient.final_status()])
+		final_list.append([current_patient.id, current_patient.name, current_patient.requested, current_patient.stat()])
 	for current_donor in donors:
 		final_donor_list.append([current_donor.type, current_donor.allocated])
 
