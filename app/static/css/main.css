@@ -48,7 +48,7 @@ body, html {
     float: right;
 }
 
-.notifications, .login-form {
+.notifications, .login-form, .signup-form {
     display: block;
     max-height: 400px; 
     padding: 20px;
@@ -61,6 +61,10 @@ body, html {
 
 .login-form {
     overflow: hidden;
+}
+
+.signup-form {
+    overflow: scroll;
 }
 
 .card {
