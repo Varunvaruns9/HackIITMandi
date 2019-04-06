@@ -35,7 +35,7 @@ def index(request):
 
 def signup(request):
 	if request.user.is_authenticated:
-		return HttpResponseRedirect('results/')
+		return redirect('results')
 	else:
 		error=""
 		lol = []

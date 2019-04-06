@@ -14,7 +14,8 @@ class SignUpForm(UserCreationForm):
 	rh = forms.ChoiceField(choices=RH, label="RH")
 	ailment = forms.BooleanField(initial=False)
 	report = forms.FileField()
+	age = forms.IntegerField()
 
 	class Meta:
 		model = User
-		fields = ['email', 'first_name', 'last_name', 'donor', 'organs', 'bloodgroup', 'rh', 'ailment', 'report', 'password1', 'password2']
+		fields = ['email', 'age', 'first_name', 'last_name', 'donor', 'organs', 'bloodgroup', 'rh', 'ailment', 'report', 'password1', 'password2']
