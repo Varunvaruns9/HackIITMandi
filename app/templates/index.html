@@ -31,10 +31,8 @@
         </nav>
     </div>
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
     </ul>
 
     <div class="overlay"></div>
@@ -62,25 +60,27 @@
             </div>
         </div>
 
-        <div class="login-wrapper">
-            <div class="login">
+        <div class="form-wrapper">
+            <div id="loginform">
                 <h4>Login</h4>
-                <form method="post">
-                {% csrf_token %}
-                {{ form }}
-                <div class="col s12">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+                <div class="login-form">
+                    <form method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="col s12">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+                        <br /><br />Not registered yet? <a id="gosignup" href="register.html">Sign Up Here</a>
+                    </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
-    </div>
 
 
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="../static/js/main.js"></script>
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="../static/js/main.js"></script>
 </body>
 
 </html>
