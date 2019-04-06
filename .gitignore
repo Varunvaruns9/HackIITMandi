@@ -3,6 +3,7 @@ __pycache__/
 app/__pycache__/
 app/migrations/__pycache__/
 hack/__pycache__/
+reports/
 db.sqlite3
 .vscode/
 
