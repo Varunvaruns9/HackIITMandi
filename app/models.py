@@ -54,6 +54,8 @@ class User(AbstractUser):
 	rh = models.IntegerField(choices=RH, blank=True, null=True)
 	ailment = models.BooleanField(default=False, blank=True, null=True)
 	report = models.FileField(upload_to=user_directory_path)
+	lat = models.CharField(max_length=20, blank=True, null=True)
+	lon = models.CharField(max_length=20, blank=True, null=True)
 
 
 	USERNAME_FIELD = 'email'
