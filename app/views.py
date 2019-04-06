@@ -18,7 +18,7 @@ def index(request):
 			print(row.organs)
 			if row.donor == True:
 				for a in row.organs:
-					lol.append({'name': row.first_name + ' ' + row.last_name, 'organ': Organs[int(a)][1], 'email': row.email, })
+					lol.append({'name': row.first_name + ' ' + row.last_name, 'organ': Organs[int(a)-1][1], 'email': row.email, })
 		if request.method == 'POST':
 			form = LoginForm(request.POST)
 			username = request.POST['username']
@@ -43,7 +43,7 @@ def signup(request):
 			print(row.organs)
 			if row.donor == True:
 				for a in row.organs:
-					lol.append({'name': row.first_name + ' ' + row.last_name, 'organ': Organs[int(a)][1], 'email': row.email, })
+					lol.append({'name': row.first_name + ' ' + row.last_name, 'organ': Organs[int(a)-1][1], 'email': row.email, })
 		if request.method == 'POST':
 			form = SignUpForm(request.POST)
 			if not form.is_valid():
@@ -56,14 +56,16 @@ def signup(request):
 		return render(request, 'register.html', {'form': form, 'error': error, 'lol': lol})
 
 def results(request):
+	if not request.user.is_authenticated:
+		return redirect('index')
 	lista, listb = stable_match()
 	lol = []
 	for b in lista:
 		for c in b[3]:
+			if c == "Ineligible":
+				continue
 			d = c.split(' ')
-			print(Organs)
 			e = Organs[int(d[1][1])-1][1]
 			lol.append({'rec': b[1], 'don': d[0], 'organ': e})
 	context = {'lol': lol}
-	print(lol)
 	return render(request, 'results.html', context)

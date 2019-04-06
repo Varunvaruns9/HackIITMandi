@@ -92,6 +92,12 @@ body, html {
     padding: 50px;
 }
 
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+}
+
 
 @media screen and (max-width: 1000px) {
 
