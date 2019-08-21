@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .algo import *
+from .stable_match import *
 from .models import User
 from .choices import Organs
 from .forms import SignUpForm
